@@ -1,5 +1,3 @@
-# 4/2019
-
 from functools import reduce
 from collections import OrderedDict
 import json
@@ -7,7 +5,7 @@ import pickle
 
 from util_hash import hash_string_256, hash_block
 
-SHIMOCOIN = 10
+WAVECOIN = 10
 
 blockchain = []
 open_transactions = []
@@ -162,9 +160,9 @@ def mine_block():
     
     """Mining reward"""
     reward_transaction = OrderedDict([
-        ('sender','SHIMO_MINER'),
+        ('sender','MIZU_MINER'),
         ('recipient', owner),
-        ('amount', SHIMOCOIN)
+        ('amount', WAVECOIN)
         ])
     
     copied_transactions = open_transactions[:]
@@ -215,9 +213,9 @@ def verify_chain():
 waiting_for_input = True
 
 # A while loop for the user input interface
-# It's a loop that exits once waiting_for_input becomes False or when break is called
+# It'src a loop that exits once waiting_for_input becomes False or when break is called
 while waiting_for_input:
-    print('******Permafrost Blockchain******')
+    print('******Kuromizu Blockchain Network******')
     print('***System Options***')
     print('1: Add a new transaction value')
     print('2: Mine a new block')
@@ -247,7 +245,7 @@ while waiting_for_input:
     elif user_choice == '4':
         print(participants)
     elif user_choice == 'h':
-        # Make sure that you don't try to "hack" the blockchain if it's empty
+        # Make sure that you don't try to "hack" the blockchain if it'src empty
         if len(blockchain) >= 1:
             blockchain[0] = {
                 'previous_hash': '',
@@ -255,7 +253,7 @@ while waiting_for_input:
                 'transactions': [{'sender': 'Admin', 'recipient': 'CJ', 'amount': 33.0}]
             }
     elif user_choice == 'q':
-        # This will lead to the loop to exist because it's running condition becomes False
+        # This will lead to the loop to exist because it'src running condition becomes False
         waiting_for_input = False
     else:
         print('Input was invalid, please pick a correct value from the list!')
